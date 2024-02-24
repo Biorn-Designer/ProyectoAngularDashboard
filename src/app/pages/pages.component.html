@@ -1,0 +1,53 @@
+
+<mat-toolbar>
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+      <mat-icon *ngIf="!sidenav.opened">
+        menu
+      </mat-icon>
+      <mat-icon *ngIf="sidenav.opened">
+        close
+      </mat-icon>
+    </button>
+    <span>Cirugia Menor</span>
+  </mat-toolbar>
+
+
+    <mat-sidenav-container class="example-container">
+      <mat-sidenav class="mat-elevation-z8" #sidenav="matSidenav" mode="side" opened>
+        <img class="avatar mat-elevation-z8" height="100" width="100" src="https://image.freepik.com/vector-gratis/cuidado-salud-logotipo-medico_7888-72.jpg">
+        <h4 class="name">Administrador</h4>
+        <p class="designation">Ing. en Sistemas</p>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button">
+          <mat-icon>person</mat-icon>
+          <span><a [routerLink]="['pacienteCreate']">Pacientes</a></span>
+        </button>
+
+        <button mat-button class="menu-button">
+          <mat-icon>calendar_today</mat-icon>
+          <span><a [routerLink]="['pacienteDetails/id']">Ver Agenda</a></span>
+        </button>
+
+        <button mat-button class="menu-button">
+          <mat-icon>alarm</mat-icon>
+          <span><a [routerLink]="['pacientes']">Crear Cita</a></span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button">
+          <mat-icon>logout</mat-icon>
+          <span>Salir</span>
+        </button>
+      </mat-sidenav>
+
+      <mat-sidenav-content>
+        <div class="content mat-elevation-z8">
+          <router-outlet></router-outlet>
+        </div>
+      </mat-sidenav-content>
+
+
+    </mat-sidenav-container>
